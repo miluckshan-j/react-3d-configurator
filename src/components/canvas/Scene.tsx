@@ -1,7 +1,8 @@
-import React, { useEffect } from "react";
+import React, { Suspense, useEffect } from "react";
 import { NewMaterialOpt } from "../../models/scene.interface";
 import * as THREE from "three";
 import { useThree } from "react-three-fiber";
+import Floor from "./Floor";
 
 interface SceneProps {
   newMaterialOpt: NewMaterialOpt;
@@ -39,6 +40,9 @@ const Scene = ({ newMaterialOpt }: SceneProps) => {
         position={[-8, 12, 8]}
         castShadow
       />
+      <Suspense fallback={null}>
+        <Floor />
+      </Suspense>
     </>
   );
 };
