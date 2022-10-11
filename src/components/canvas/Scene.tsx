@@ -3,6 +3,7 @@ import { NewMaterialOpt } from "../../models/scene.interface";
 import * as THREE from "three";
 import { useThree } from "react-three-fiber";
 import Floor from "./Floor";
+import ChairMesh from "./ChairMesh";
 
 interface SceneProps {
   newMaterialOpt: NewMaterialOpt;
@@ -41,6 +42,7 @@ const Scene = ({ newMaterialOpt }: SceneProps) => {
         castShadow
       />
       <Suspense fallback={null}>
+        <ChairMesh newMaterialOpt={newMaterialOpt} />
         <Floor />
       </Suspense>
     </>
