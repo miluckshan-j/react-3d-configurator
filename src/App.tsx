@@ -45,7 +45,7 @@ function App() {
         activeOption={activeOption}
         setActiveOption={setActiveOption}
       />
-      <Canvas id="rtfCanvas">
+      <Canvas id="rtfCanvas" style={{ height: "100vh" }}>
         <Scene newMaterialOpt={newMaterialOpt} />
       </Canvas>
       <div className="controls">
