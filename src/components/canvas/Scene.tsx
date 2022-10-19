@@ -1,13 +1,10 @@
 import React, { Suspense, useEffect } from "react";
 import { NewMaterialOpt } from "../../models/scene.interface";
 import * as THREE from "three";
-import { extend, useThree } from "react-three-fiber";
-import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
+import { useThree } from "react-three-fiber";
 import Floor from "./Floor";
 import ChairMesh from "./ChairMesh";
 import CameraController from "./CameraController";
-
-extend({ OrbitControls });
 
 interface SceneProps {
   newMaterialOpt: NewMaterialOpt;
