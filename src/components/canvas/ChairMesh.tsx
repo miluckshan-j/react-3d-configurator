@@ -26,10 +26,8 @@ const initColor = (
   type: string,
   mtl: THREE.MeshPhongMaterial
 ) => {
-  console.log("parent:", parent);
   // TODO: Use Mesh?
   parent.traverse((o: any) => {
-    console.log("o: ", o);
     if (o.isMesh && o.name.includes(type)) {
       o.castShadow = true;
       o.receiveShadow = true;

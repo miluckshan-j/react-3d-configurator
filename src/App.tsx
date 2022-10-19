@@ -18,7 +18,6 @@ function App() {
   const selectSwatch = (e: any) => {
     const color = COLORS[parseInt(e.target.dataset.key)];
     let newMTL;
-
     if (color.texture) {
       const txt = new THREE.TextureLoader().load(color.texture);
       txt.repeat.set(color.size[0], color.size[1]);

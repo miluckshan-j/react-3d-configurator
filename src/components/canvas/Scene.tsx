@@ -17,12 +17,11 @@ const Scene = ({ newMaterialOpt }: SceneProps) => {
     const directionalLight = scene.children[1] as THREE.DirectionalLight;
     scene.background = new THREE.Color(0xf1f1f1);
     scene.fog = new THREE.Fog(0xf1f1f1, 20, 100);
-    const newCamera = camera as THREE.PerspectiveCamera;
-    newCamera.fov = 50;
+    const perspectiveCamera = camera as THREE.PerspectiveCamera;
+    perspectiveCamera.fov = 50;
     directionalLight.shadow.mapSize = new THREE.Vector2(1024, 1024);
     gl.shadowMap.enabled = true;
-    console.log(scene);
-  }, []);
+  });
 
   return (
     <>
