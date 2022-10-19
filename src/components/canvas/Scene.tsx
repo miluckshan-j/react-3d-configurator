@@ -1,20 +1,20 @@
 import React, { Suspense, useEffect } from "react";
 import { NewMaterialOpt } from "../../models/scene.interface";
 import * as THREE from "three";
-import { useThree } from "react-three-fiber";
+import { extend, useThree } from "react-three-fiber";
+import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
 import Floor from "./Floor";
 import ChairMesh from "./ChairMesh";
+import CameraController from "./CameraController";
+
+extend({ OrbitControls });
 
 interface SceneProps {
   newMaterialOpt: NewMaterialOpt;
 }
 
 const Scene = ({ newMaterialOpt }: SceneProps) => {
-  const {
-    scene,
-    camera,
-    gl: { domElement, shadowMap },
-  } = useThree();
+  const { scene, camera, gl } = useThree();
 
   useEffect(() => {
     const directionalLight = scene.children[1] as THREE.DirectionalLight;
@@ -23,12 +23,13 @@ const Scene = ({ newMaterialOpt }: SceneProps) => {
     const newCamera = camera as THREE.PerspectiveCamera;
     newCamera.fov = 50;
     directionalLight.shadow.mapSize = new THREE.Vector2(1024, 1024);
-    shadowMap.enabled = true;
+    gl.shadowMap.enabled = true;
     console.log(scene);
   }, []);
 
   return (
     <>
+      <CameraController camera={camera} gl={gl} />
       <hemisphereLight
         // skycolor={new THREE.Color(0xffffff)}
         groundColor={new THREE.Color(0xffffff)}
