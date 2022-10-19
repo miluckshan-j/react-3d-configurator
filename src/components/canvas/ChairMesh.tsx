@@ -45,11 +45,27 @@ const ChairMesh = ({ newMaterialOpt }: ChairMeshProps) => {
 
   useEffect(() => {
     if (theModel) {
+      setMaterial(newMaterialOpt.activeOption, newMaterialOpt.newMTL);
+    }
+  }, [newMaterialOpt.newMTL]);
+
+  useEffect(() => {
+    if (theModel) {
       for (let object of INITIAL_MAP) {
         initColor(theModel, object.childID, object.mtl);
       }
     }
   }, [theModel]);
+
+  const setMaterial = (type: string, mtl: any) => {
+    theModel.traverse((o: any) => {
+      if (o.isMesh && o.userData.nameID != null) {
+        if (o.userData.nameID === type) {
+          o.material = mtl;
+        }
+      }
+    });
+  };
 
   return (
     <primitive

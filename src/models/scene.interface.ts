@@ -1,6 +1,6 @@
-import { MeshPhongMaterialProps } from "react-three-fiber";
+import { MeshPhongMaterial } from "three";
 
 export interface NewMaterialOpt {
-  newMTL: MeshPhongMaterialProps | null;
+  newMTL: MeshPhongMaterial | null;
   activeOption: string;
 }
