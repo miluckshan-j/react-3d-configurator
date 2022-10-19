@@ -73,3 +73,26 @@
     pointer-events: none;
   }
 }
+
+.tray {
+  width: 100%;
+  position: absolute;
+  bottom: 0px;
+}
+
+.tray__slide {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(50px, 1fr));
+  left: 0;
+}
+
+.tray__swatch {
+  transition: 0.1s ease-in;
+  height: 50px;
+  min-width: 40px;
+  max-width: 100px;
+  flex: 1;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+  background-size: cover;
+  background-position: center;
+}
